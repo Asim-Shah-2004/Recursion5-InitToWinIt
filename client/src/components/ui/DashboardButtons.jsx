@@ -26,7 +26,7 @@ const handleOnClick = async (text, file, span, updateMessage) => {
 const DashboardButtons = ({ text, file, span, updateMessage }) => {
     return (
         <>
-            <button className='d-btn' onClick={() => handleOnClick(text, file, span, updateMessage)}>
+            <button className='d-btn min-w-[200px]' onClick={() => handleOnClick(text, file, span, updateMessage)}>
                 <svg className='d-svg'
                     height="24"
                     width="24"
