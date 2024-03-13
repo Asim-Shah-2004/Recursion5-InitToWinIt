@@ -53,16 +53,52 @@ const Dashboard = () => {
 
                     <div className="bg-gray-300 h-fit p-4">
                         <div className="bg-gray-500 h-[70vh] p-4 border border-solid rounded-lg overflow-auto">
+                            
                             {/* Chat Bubble */}
-                            <div className='bg-white flex items-center'>
-                                <img src={plusicon} className="h-12" />
-                                <div className='mx-2 text-lg align-middle leading-7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed commodo turpis, quis condimentum dui. Integer eget lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis mattis at tellus eget porttitor. Ut et leo tortor. Etiam tincidunt pulvinar felis, id egestas elit malesuada vitae. Nulla nec neque in ex ultrices auctor id ac dui. Aliquam imperdiet in libero molestie egestas. Maecenas non dui aliquet, aliquet elit nec, blandit ante. Vestibulum condimentum tellus nunc, non imperdiet libero venenatis nec. Praesent ligula lacus, auctor sed quam eget, pretium semper nunc.
-
-                                    Suspendisse placerat justo nisi, sit amet tempus enim faucibus sed. Nunc quis quam vitae enim molestie facilisis. Curabitur scelerisque, quam eget volutpat condimentum, arcu risus feugiat ex, eget pretium tortor lectus eget metus. Donec lorem urna, pellentesque non dapibus in, scelerisque malesuada erat. Vestibulum nunc velit, efficitur in tellus non, ullamcorper ullamcorper ex. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a gravida neque. Praesent volutpat pretium scelerisque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed commodo turpis, quis condimentum dui. Integer eget lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis mattis at tellus eget porttitor. Ut et leo tortor. Etiam tincidunt pulvinar felis, id egestas elit malesuada vitae. Nulla nec neque in ex ultrices auctor id ac dui. Aliquam imperdiet in libero molestie egestas. Maecenas non dui aliquet, aliquet elit nec, blandit ante. Vestibulum condimentum tellus nunc, non imperdiet libero venenatis nec. Praesent ligula lacus, auctor sed quam eget, pretium semper nunc.
-
-                                    Suspendisse placerat justo nisi, sit amet tempus enim faucibus sed. Nunc quis quam vitae enim molestie facilisis. Curabitur scelerisque, quam eget volutpat condimentum, arcu risus feugiat ex, eget pretium tortor lectus eget metus. Donec lorem urna, pellentesque non dapibus in, scelerisque malesuada erat. Vestibulum nunc velit, efficitur in tellus non, ullamcorper ullamcorper ex. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a gravida neque. Praesent volutpat pretium scelerisque.</div>
+                            <div className='bg-white grid grid-cols-10 my-2'>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                                <div className='mx-2 text-lg flex items-center leading-7 col-span-8'>
+                                    Lorem ipsum dolor sit amet
+                                </div>
                             </div>
-                            {/* <Chat Bot /> */}
+                            <div className='bg-white grid grid-cols-10'>
+                                <div className='col-span-1'></div>
+                                <div className='mx-2 text-lg flex justify-end items-center leading-7 col-span-8'>
+                                    Lorem ipsum dolor sit ametdnfnddfndfndfnfdndfn
+                                    Lorem ipsum dolor sit ametdnfnddfndfndfnfdndfn
+                                    Lorem ipsum dolor sit ametdnfnddfndfndfnfdndfn
+                                </div>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                            </div>
+                            <div className='bg-white grid grid-cols-10 my-2'>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                                <div className='mx-2 text-lg flex items-center leading-7 col-span-8'>
+                                    Lorem fjkdjflkdjlks fkdjs fkjldskjfl
+                                </div>
+                            </div>
+                            <div className='bg-white grid grid-cols-10'>
+                                <div className='col-span-1'></div>
+                                <div className='mx-2 text-lg flex justify-end items-center leading-7 col-span-8 *:'>
+                                    Lorem ipsum dolor sit amet
+                                </div>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                            </div>
+                            <div className='bg-white grid grid-cols-12 my-2'>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                                <div className='mx-2 text-lg flex items-center leading-7 col-span-10'>
+                                    Lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                            <div className='bg-white grid grid-cols-12'>
+                                <div className='col-span-1'></div>
+                                <div className='mx-2 text-lg flex justify-end items-center leading-7 col-span-10'>
+                                    Lorem ipsum dolor sit amet
+                                </div>
+                                <img src={plusicon} className="h-12 col-span-1" />
+                            </div>
+
+                            
+
                         </div>
 
                     </div>
