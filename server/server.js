@@ -7,7 +7,7 @@ import loginRouter from './routes/loginRoute.js'
 import uploadRouter from './routes/uploadRoute.js'
 import corsOptions from './config/corsOptions.js'
 import generelRouter from './routes/generelRoute.js'
-import testRouter from './routes/testRoute.js'
+import ttsRouter from './routes/ttsRoute.js'
 dotenv.config()
 
 const app = express()
@@ -27,9 +27,8 @@ app.use('/register', RegisterRouter)
 app.use('/login', loginRouter)
 app.use('/upload', uploadRouter)
 app.use('/generel',generelRouter)
+app.use('/textToSpeech',ttsRouter)
 
-
-app.use('/test',testRouter)
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
