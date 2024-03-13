@@ -1,19 +1,18 @@
 // import React from 'react'
 import { useState } from 'react';
+import ChatComp from '@/components/ui/ChatComp';
+import DatePicker from '@/components/ui/DatePicker';
+import DashboardButtons from '@/components/ui/DashboardButtons';
 import axios from 'axios';
-// import { Widget, addResponseMessage } from 'react-chat-widget';
-// import ImageUpload from '@/components/ui/ImageUpload';
 import plusicon from '../assets/plus.png'
 import './Dashboard.css'
-import DashboardButtons from '@/components/ui/DashboardButtons';
-import DatePicker from '@/components/ui/DatePicker';
-import ChatComp from '@/components/ui/ChatComp';
 
-// import 'react-chat-widget/lib/styles.css';
+const SERVERURL = import.meta.env.VITE_SERVER_URL;
 
 const Dashboard = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [error, setError] = useState(false);
+    const [span, setSpan] = useState(30);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -28,7 +27,7 @@ const Dashboard = () => {
             const formData = new FormData();
             formData.append('image', selectedFile);
 
-            const response = await axios.post('http://localhost:3000/upload', formData);
+            const response = await axios.post(`${SERVERURL}/upload`, formData);
             console.log('Image uploaded successfully:', response.data);
         }
         catch (error) {
@@ -56,7 +55,7 @@ const Dashboard = () => {
 
                     <div className="bg-gray-300 h-fit p-4">
                         <ChatComp />
-                        
+
 
                     </div>
 
@@ -72,42 +71,42 @@ const Dashboard = () => {
                                     />
                                 ) : (
                                     <img src={plusicon} width="110vw" alt="Plus Icon" />
-                                    )}
+                                )}
                             </div>
                             <div className='fixed ml-96 mt-8'>
-                                {selectedFile ? 
+                                {selectedFile ?
                                     <button className={`btn`}>
-                                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
-                                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-                                </svg>
+                                        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
+                                            <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                                        </svg>
 
-                                <span className="text">Generate</span>
-                                </button>
+                                        <span className="text">Generate</span>
+                                    </button>
 
-                                :
+                                    :
                                     <div className='p-4 bg-slate-500 rounded-full select-none mt-4'>Upload a file to generate response </div>
                                 }
                             </div>
-                            
+
 
                         </div>
                         <div className='bg-gray-600 p-4 rounded-lg'>
 
                             <span className='text-slate-900'>Please enter your trip dates to help us plan better.</span>
-                            <DatePicker />
+                            <DatePicker setDateDiff={setSpan} />
                         </div>
-                           { selectedFile && <div className='my-8 flex justify-around items-center'>
-                                <DashboardButtons text={'Itinerary'}/>
-                                <DashboardButtons text={'Budget'}/>
-                                <DashboardButtons text={'Food'}/>
-                                <DashboardButtons text={'Clothing'}/>
-                                <DashboardButtons text={'Security'}/>
-
-                            
-                            </div>}
+                        {selectedFile && <div className='my-8 flex justify-around items-center'>
+                            <DashboardButtons text={'Itinerary'} />
+                            <DashboardButtons text={'Budget'} />
+                            <DashboardButtons text={'Food'} />
+                            <DashboardButtons text={'Clothing'} />
+                            <DashboardButtons text={'Security'} />
 
 
-                            
+                        </div>}
+
+
+
                     </div>
 
 
