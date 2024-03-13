@@ -79,3 +79,4 @@ button:hover span:not(:nth-child(6)) {
     transform: translate(-50%, -50%) scale(4);
     transition: 1.5s ease;
 }
+ 

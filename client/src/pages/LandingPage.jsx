@@ -11,29 +11,26 @@ const LandingPage = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            // Increment the current image index, looping back to 0 when reaching the last image
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 5);
-        }, 2000);
+        }, 2500);
 
-        // Clean up the interval when the component unmounts
         return () => clearInterval(interval);
-    }, []); // Empty dependency array ensures that the effect runs only once on component mount
+    }, []);
 
     const images = [pic1, pic2, pic3, pic4, pic5];
 
     return (
         <>
-            <div className='w-full h-screen bg-[#0c2c57e1] mx-auto'>
+            <div className='w-full h-screen bg-[#0c2c57e1] mx-auto relative overflow-hidden'>
                 <div className='max-w-[1440px] mx-auto flex justify-between'>
                     <div>
-                        <h1 className='text-5xl p-4 font-bold  text-[#FC6736]'>Travel</h1>
+                        <h1 className='text-5xl p-4 font-bold text-[#FC6736]'>Travel</h1>
                         <h1 className='text-5xl ml-7 font-bold -mt-10 p-4 text-[#EFECEC]'>Smart</h1>
                     </div>
                     <div className='z-10 p-8  relative -left-64'>
                         <button className='border-[2px] border-[#EFECEC] border-solid text-[#EFECEC] p-4 mr-5 rounded-xl hover:text-[#]'>Start Planning</button>
                         
                         <button className='bg-[#FC6736] text-[#0C2D57] p-4 rounded-xl'>Start Planning</button>
-
                     </div>
                     <div className='z-10 p-8  '>
                         <button className="relative overflow-hidden bg-[#0C2D57] text-[#FFB0B0] p-4 rounded-xl font-bold text-2xl hover:bg-[#FC6736] hover:text-[#0C2D57] transition duration-300 ease-in-out">
@@ -42,7 +39,11 @@ const LandingPage = () => {
                         </button>
                     </div>
                 </div>
-                <img src={images[currentImageIndex]} alt="" className='sideImage fixed -z-1 select-none' />
+                <img
+                    src={images[currentImageIndex]}
+                    alt=""
+                    className='sideImage fixed -z-1 select-none'
+                />
             </div>
         </>
     );
