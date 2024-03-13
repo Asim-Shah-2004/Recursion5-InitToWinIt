@@ -1,11 +1,12 @@
 import openAiBot from '../services/openAiService.js'
-import getDate from '../services/formattedDate.js';
+import getDate from '../services/formattedDate.js'
 
 const handleGeneral = async (req, res, locations) => {
-    const {prompt} = req.body;
-    const formattedDate = getDate();
-    const result = await openAiBot(
-        `only answer the following question based on the given context
+    const { prompt } = req.body
+    const formattedDate = getDate()
+    try {
+        const result = await openAiBot(
+            `only answer the following question based on the given context
           location: ${locations} only consider the city if present
           date: ${formattedDate} this is in dd/mm/yyyy format
           you are a travel releated chatbot so you should only answer questions pertaning to travelling in ${locations}
@@ -16,9 +17,13 @@ const handleGeneral = async (req, res, locations) => {
           if you are aksked places to visit use the above context
           the questoion is :${prompt}
         `
-    )
-    console.log(result)
-    res.send(result)
+        )
+        console.log(result)
+        res.send(result)
+    } catch (err) {
+        console.log(err)
+        res.send(`error while generating prompt`)
+    }
 }
 
 export default handleGeneral

@@ -32,7 +32,7 @@ async function handleUpload(req, res) {
             return await handleClothing(req, res, locations)
         } else if (req.body.type === 'Threat') {
             return await handleThreat(req, res, locations)
-        } else if (req.body.type === 'generate') {
+        } else if (req.body.type === 'Generate') {
             return await handleGenerate(req, res, locations)
         } else {
             return await handleGeneral(req, res, locations)
