@@ -1,8 +1,5 @@
-import multer from 'multer'
-import path from 'path'
-
-
-
-const handleUpload = ()=>{
-
+const handleUpload = (req,res)=>{
+    res.send('Image uploaded');
 }
+
+export default handleUpload
