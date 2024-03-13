@@ -1,10 +1,13 @@
 import openAiBot from '../services/openAiService.js'
 
 const handleFamousFood = async (req, res, locations) => {
-    const result = await openAiBot(`suggest me some famous food based on my location which is: ${locations}`)
+    const result = await openAiBot(`
+        provide me culinary recommendations based on your location, identified as: ${locations}(only take the city name if present). 
+        Please suggest some famous local dishes or food specialties.
+        Ensure the suggestions are tailored to the cuisine prevalent in the specified location
+    `)
     console.log(result);
-    const message = `Some of the famous food here include \n ${result}`
-    res.send(message);
+    res.send(result);
 }
 
 export default handleFamousFood

@@ -17,16 +17,16 @@
 /* .background {
     /* background: hsla(214, 76%, 19%, 1); */
 
-    /* background: linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
+/* background: linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
 
-    /* background: -moz-linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
+/* background: -moz-linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
 
-    /* background: -webkit-linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
+/* background: -webkit-linear-gradient(90deg, hsla(214, 76%, 19%, 1) 0%, hsla(0, 9%, 93%, 1) 86%); */
 
-    /* filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0C2D57", endColorstr="#EFECEC", GradientType=1); 
+/* filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0C2D57", endColorstr="#EFECEC", GradientType=1); 
 } */
 
-button {
+/* button {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
@@ -78,5 +78,52 @@ button span:nth-child(5) {
 button:hover span:not(:nth-child(6)) {
     transform: translate(-50%, -50%) scale(4);
     transition: 1.5s ease;
+<<<<<<< HEAD
 }
  
+=======
+} */
+
+button {
+    --color: #FC6736;
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px;
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+}
+
+button::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+button:hover {
+    color: white;
+}
+
+button:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all;
+}
+
+button:hover::before {
+    top: -30px;
+    left: -30px;
+}
+>>>>>>> 628fbc4088434ff1b433da641e4cb26afbd87acf
