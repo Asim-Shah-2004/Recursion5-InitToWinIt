@@ -1,5 +1,4 @@
-// import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,6 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState(localStorage.getItem("password") || "");
     const [registerError, setRegisterError] = useState(false);
     const [message, setMessage] = useState("Enter Valid Details!");
+    const [loading, setLoading] = useState(false); // Added loading state
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -39,6 +39,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setLoading(true); // Set loading state to true when form is submitted
+
         try {
             const response = await axios.post(`${SERVERURL}/login`, formData);
             if (response.data.user === formData.username) {
@@ -54,14 +56,23 @@ const Login = () => {
             console.error("Error login:", err);
             setRegisterError(true);
             setMessage(err.response.data.message);
+            setTimeout(() => {
+
+                setRegisterError(false);
+            }, 2000);
             // console.log(error.response.data);
+        } finally {
+            setLoading(false); // Set loading state to false when request is completed
         }
     };
 
     return (
-        <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-slate-100">
+        <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-[#0c2c57e1]">
             <div className="flex mx-auto items-center justify-end md:justify-center h-screen flex-col">
-                <h1 className="text-6xl mb-7 mainText font-bold uppercase text-red-700">fkjdkjfkd</h1>
+                <div>
+                    <h1 className='text-7xl p-4 font-bold text-[#FC6736]'>Travel</h1>
+                    <h1 className='text-7xl ml-7 font-bold -mt-10 p-4 text-[#EFECEC]'>Smart</h1>
+                </div>
 
                 {registerError && (
                     <p className="text-white bg-red-500 p-3 m-3 rounded-full">
@@ -89,14 +100,15 @@ const Login = () => {
                     />
                     <button
                         type="submit"
-                        className="bg-green-400 w-[150px] p-5 rounded-xl"
+                        className={`bg-[#FC6736] w-[150px] p-4 rounded-xl font-monospace text-white m-3 hover:bg-green-500 transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        disabled={loading} // Disable button when loading
                     >
-                        Login
+                        {loading ? 'Loading...' : 'Login'} {/* Display loading text when loading */}
                     </button>
-                    <div className="mt-4">
+                    <div className="mt-8 text-lg text-white">
                         Not our part yet?
                         <Link to="/register">
-                            <div className=" inline text-red-700"> Sign Up </div>
+                            <div className=" inline text-xl text-[#FC6736] p-2 rounded-xl font-semibold"> Sign Up </div>
                         </Link>
                     </div>
                 </form>
