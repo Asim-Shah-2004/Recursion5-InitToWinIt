@@ -1,31 +1,17 @@
 import React, { useState } from "react";
 // import down from "../assets/down.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-// const handleLogin = async (e) => {
-//     e.preventDefault();
 
-//     try {
-//       const response = await axios.post("http://localhost:8080/auth/login", {
-//         teamCode,
-//         password,
-//       });
-
-//       const token = response.data.data.token;
-//       console.log("Login Successful! Token:", token);
-//     } catch (error) {
-//       console.error("Login Failed:", error.response?.data);
-//     }
-//   };
 
 const Login = () => {
-
-    const [registerError, setRegisterError] = useState(true);
+    const navigate = useNavigate();
+    const [registerError, setRegisterError] = useState(false);
     const [message, setMessage] = useState("");
 
     const [formData, setFormData] = useState({
-        email: "",
+        username: "",
         password: "",
     });
 
@@ -35,33 +21,39 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
-          const response = await axios.get(
-            `http://localhost:3000/login`
-          );
-          console.log(response.data); // You can handle the response as needed
-    
+            const response = await axios.post(
+                `http://localhost:3000/login`,formData);
+            console.log(response.data); // You can handle the response as needed
+            navigate('/dashboard');
+
         } catch (error) {
-          console.error("Error registering user:", error);
-          setRegisterError(true);
-          setMessage(error.response.data.fetch);      
+            console.error("Error login:", error);
+            setRegisterError(true);
+            setMessage(error.response.data.fetch);
+            console.log(error.response.data.fetch);
         }
-      };
+    };
 
 
     return (
         <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-slate-100">
             <div className="flex mx-auto items-center justify-end md:justify-center h-screen flex-col">
                 <h1 className="text-6xl mb-7 mainText font-bold uppercase text-red-700">fkjdkjfkd</h1>
+                {registerError && (
+                    <p className="text-white bg-red-500 p-3 m-3 rounded-full">
+                        {message}
+                    </p>
+                )}
                 <form
                     className="flex flex-col justify-center items-center"
-                //   onSubmit={handleSubmit}
+                    onSubmit={handleSubmit}
                 >
                     <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
+                        type="username"
+                        name="username"
+                        placeholder="Enter your username"
                         className="bg-black text-white p-5 rounded-xl m-3"
                         onChange={handleChange}
                     />
