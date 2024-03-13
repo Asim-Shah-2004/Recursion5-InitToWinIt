@@ -24,7 +24,7 @@ mongoose
 app.use(express.json())
 app.use(cors(corsOptions))
 
-// Registering routes
+
 app.use('/register', RegisterRouter)
 app.use('/login', loginRouter)
 app.use('/upload', uploadRouter)
