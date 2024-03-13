@@ -5,6 +5,8 @@ import handleFamousFood from './handleFamousFood.js'
 import handleSafetyConsiderations from './handleSafetyConsiderations.js'
 import handleClimate from './handleClimate.js'
 import handleChlothing from './handleChlothing.js'
+import handleThreat from './handleThreat.js'
+import handleGenerel from './handleGenerel.js'
 async function handleUpload(req, res) {
     try {
         // Check if a file was uploaded
@@ -26,6 +28,10 @@ async function handleUpload(req, res) {
             return await handleClimate(req,res,locations)
         }else if(req.body.type==='chlothing'){
             return await handleChlothing(req,res,locations)
+        }else if(req.body.type==='threat'){
+            return await handleThreat(req,res,locations)
+        }else{
+            return await handleGenerel(req,res,locations)   
         }
 
         // Send the result back as a response
