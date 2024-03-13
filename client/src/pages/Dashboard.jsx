@@ -4,6 +4,7 @@ import axios from 'axios';
 // import { Widget, addResponseMessage } from 'react-chat-widget';
 // import ImageUpload from '@/components/ui/ImageUpload';
 import plusicon from '../assets/plus.png'
+import './Dashboard.css'
 
 // import 'react-chat-widget/lib/styles.css';
 
@@ -67,8 +68,8 @@ const Dashboard = () => {
                     </div>
 
                     <div className="bg-gray-300 h-fit p-4">
-                        <div className="bg-gray-600 h-[70vh] p-4 border border-solid rounded-lg">
-                            <div className="flex justify-center items-center bg-gray-500 h-80 p-4 border border-solid rounded-lg relative">
+                        <div className="bg-gray-600 h-[30vh] p-4 border border-solid rounded-lg w-full flex">
+                            <div className="flex justify-center items-center bg-gray-500 h-40 w-1/2 p-4 border border-solid rounded-lg relative">
                                 <input type="file" accept="image/*" onChange={handleFileChange} className='w-full h-full opacity-0 absolute' />
                                 {selectedFile ? (
                                     <img
@@ -78,16 +79,26 @@ const Dashboard = () => {
                                     />
                                 ) : (
                                     <img src={plusicon} width="110vw" alt="Plus Icon" />
-                                )}
+                                    )}
+                            </div>
+                            <div className='fixed ml-96 mt-8'>
+                                <button className="btn">
+                                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
+                                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                                </svg>
+
+                                <span className="text">Generate</span>
+                                </button>
                             </div>
 
-                            <div className='my-8 flex justify-around items-center'>
-                                <button className='px-2 text-2xl bg-white text-center' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
-                            </div>
                         </div>
+                            <div className='my-8 flex justify-around items-center'>
+                                <button className='px-2 text-2xl bg-white text-center' onClick={handleSubmit}>Itinerary</button>
+                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Budget</button>
+                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Security</button>
+                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Clothing</button>
+                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Food</button>
+                            </div>
                     </div>
 
 
