@@ -97,10 +97,10 @@ const Dashboard = () => {
 
                 <div className="grid grid-cols-2 gap-2 mx-8">
 
-                    <div className="bg-gray-300 h-fit p-4">
+                    <div className=" h-[75vh] p-4 example">
                         <ChatComp messages={messageHistory} />
 
-                        <div className="relative">
+                        <div className="relative mt-5">
                             <span className="absolute inset-y-0 left-0 pl-2 flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-message-square"><path d="M12 6V2H8" /><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z" /><path d="M2 12h2" /><path d="M9 11v2" /><path d="M15 11v2" /><path d="M20 12h2" /></svg>
                             </span>
@@ -120,7 +120,7 @@ const Dashboard = () => {
 
                     </div>
 
-                    <div className="bg-gray-300 h-fit p-4">
+                    <div className=" h-fit p-4">
                         <div className="bg-gray-600 h-[30vh] p-4 border border-solid rounded-lg w-full flex">
                             <div className="flex justify-center items-center bg-gray-500 h-40 w-1/2 p-4 border border-solid rounded-lg relative">
                                 <input type="file" accept="image/*" onChange={handleFileChange} className='w-full h-full opacity-0 absolute' />
@@ -151,7 +151,7 @@ const Dashboard = () => {
 
 
                         </div>
-                        <div className='bg-gray-600 p-4 rounded-lg'>
+                        <div className='bg-gray-600 p-4 rounded-lg mt-5'>
 
                             <span className='text-slate-900'>Please enter your trip dates to help us plan better.</span>
                             <DatePicker setDateDiff={setSpan} />

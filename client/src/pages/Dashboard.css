@@ -76,3 +76,6 @@
     transform: translateX(7px);
   }
   
+  .example ::-webkit-scrollbar {
+    display: none;
+  }
