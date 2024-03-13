@@ -30,7 +30,7 @@ const Register = () => {
         localStorage.clear();
         localStorage.setItem("username", response.data.user);
         localStorage.setItem("password", response.data.password);
-        navigate('/dashboard');
+        navigate('/login');
       }
       else
         setMessage(response.data.message);
