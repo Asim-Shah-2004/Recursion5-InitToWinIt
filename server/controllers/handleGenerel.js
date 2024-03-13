@@ -7,9 +7,12 @@ const handdleGenerel = async (req, res, locations) => {
         `only answer the following question based on the given context
           location: ${locations} only consider the city if present
           date: ${formattedDate} this is in dd/mm/yyyy format
-          Do Not answer anything beyond this context if the question is beyond 
-          this say i cant answer beyond the context
           you are a travel releated chatbot so you should only answer questions pertaning to travelling in ${locations}
+          use the given context and answer questions based on the given context only
+          any question should include answer releted to the given context only
+          some examples :
+          if you are aksed what will i do at a paticular day use the above context
+          if you are aksked places to visit use the above context
           the questoion is :${prompt}
         `
     )

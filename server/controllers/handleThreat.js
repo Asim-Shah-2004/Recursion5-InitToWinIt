@@ -2,11 +2,15 @@ import openAiBot from '../services/openAiService.js'
 
 const handleThreat = async (req, res, locations) => {
     const result = await openAiBot(
-        `give me information about threaths in given my location which is: ${locations} also tell where should i reach out to in case of these threaths`
+        `You are a travel-related chatbot specializing in the location: ${locations} 
+        (consider only the city if provided). Please provide detailed information about the threats a 
+        person may face while traveling in this location. Additionally, 
+        specify the emergency number and helpline to call if these threats are encountered. 
+        Ensure thorough analysis of each threat
+        `
     )
     console.log(result)
-    const message = `threaths you might face here are \n ${result}`
-    res.send(message)
+    res.send(result)
 }
 
 export default handleThreat
