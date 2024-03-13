@@ -15,7 +15,7 @@ async function handleUpload(req, res) {
         console.log(locations);
 
         if (req.body.type === "Itenary")
-            await handleTravelItenary(req, res, locations);
+            return await handleTravelItenary(req, res, locations);
 
         // Send the result back as a response
         res.send("Finish Upload");
