@@ -6,7 +6,7 @@ import loginRouter from './routes/loginRoute.js'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
-const CONNECTION_URL = process.env.CONNECTION_URL
+const CONNECTION_URL = `mongodb+srv://IPL_AUCTION_24:${process.env.PASSWORD}@cluster0.ilknu4v.mongodb.net/HACKATHON?retryWrites=true&w=majority`;
 
 mongoose
     .connect(CONNECTION_URL)
