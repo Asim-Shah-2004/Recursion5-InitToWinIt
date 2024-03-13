@@ -1,7 +1,7 @@
 import openAiBot from '../services/openAiService.js'
 
 const handleTravelItenary = async (req, res, locations) => {
-    const {span} = req.body
+    const { span } = req.body
     const result = await openAiBot(`
         You are a travel-related chatbot specializing in planning itineraries for a location, 
         specifically focusing on the city name provided as: ${locations}. 
@@ -9,8 +9,8 @@ const handleTravelItenary = async (req, res, locations) => {
         Provide a detailed analysis for each day,
         including a breakdown of places to visit with cost accounts and time breakdown
     `)
-    console.log(result);
-    res.send(result);
+    console.log(result)
+    res.send(result)
 }
 
 export default handleTravelItenary

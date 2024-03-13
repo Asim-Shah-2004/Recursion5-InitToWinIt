@@ -7,7 +7,7 @@ const LoginHandler = async (req, res) => {
     if (!username || !password)
         return res
             .status(400)
-            .send({ message: 'Username and password not found' })
+            .send({ message: 'Enter Username and Password!' })
 
     try {
         const user = await User.findOne({ username })
@@ -16,12 +16,11 @@ const LoginHandler = async (req, res) => {
 
         const result = await bcrypt.compare(password, user.password)
 
-        if (!result)
-            return res.status(401).send({ message: 'Incorrect password' })
+        if (!result) return res.status(401).send({ message: 'Incorrect password' })
 
-        res.status(200).send({ message: 'Login successful' })
-    } catch (error) {
-        console.error('Error during login:', error)
+        res.status(200).send({ message: 'Login successful', user: username, password: password })
+    } catch (err) {
+        console.error('Error during login:', err)
         return res.status(500).send({ message: 'Error during login' })
     }
 }

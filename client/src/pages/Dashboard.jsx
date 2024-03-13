@@ -4,6 +4,10 @@ import axios from 'axios';
 // import { Widget, addResponseMessage } from 'react-chat-widget';
 // import ImageUpload from '@/components/ui/ImageUpload';
 import plusicon from '../assets/plus.png'
+import './Dashboard.css'
+import DashboardButtons from '@/components/ui/DashboardButtons';
+import DatePicker from '@/components/ui/DatePicker';
+import ChatComp from '@/components/ui/ChatComp';
 
 // import 'react-chat-widget/lib/styles.css';
 
@@ -48,27 +52,17 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8 mx-8">
+                <div className="grid grid-cols-2 gap-2 mx-8">
 
                     <div className="bg-gray-300 h-fit p-4">
-                        <div className="bg-gray-500 h-[70vh] p-4 border border-solid rounded-lg overflow-auto">
-                            {/* Chat Bubble */}
-                            <div className='bg-white flex items-center'>
-                                <img src={plusicon} className="h-12" />
-                                <div className='mx-2 text-lg align-middle leading-7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed commodo turpis, quis condimentum dui. Integer eget lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis mattis at tellus eget porttitor. Ut et leo tortor. Etiam tincidunt pulvinar felis, id egestas elit malesuada vitae. Nulla nec neque in ex ultrices auctor id ac dui. Aliquam imperdiet in libero molestie egestas. Maecenas non dui aliquet, aliquet elit nec, blandit ante. Vestibulum condimentum tellus nunc, non imperdiet libero venenatis nec. Praesent ligula lacus, auctor sed quam eget, pretium semper nunc.
-
-                                    Suspendisse placerat justo nisi, sit amet tempus enim faucibus sed. Nunc quis quam vitae enim molestie facilisis. Curabitur scelerisque, quam eget volutpat condimentum, arcu risus feugiat ex, eget pretium tortor lectus eget metus. Donec lorem urna, pellentesque non dapibus in, scelerisque malesuada erat. Vestibulum nunc velit, efficitur in tellus non, ullamcorper ullamcorper ex. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a gravida neque. Praesent volutpat pretium scelerisque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed commodo turpis, quis condimentum dui. Integer eget lectus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis mattis at tellus eget porttitor. Ut et leo tortor. Etiam tincidunt pulvinar felis, id egestas elit malesuada vitae. Nulla nec neque in ex ultrices auctor id ac dui. Aliquam imperdiet in libero molestie egestas. Maecenas non dui aliquet, aliquet elit nec, blandit ante. Vestibulum condimentum tellus nunc, non imperdiet libero venenatis nec. Praesent ligula lacus, auctor sed quam eget, pretium semper nunc.
-
-                                    Suspendisse placerat justo nisi, sit amet tempus enim faucibus sed. Nunc quis quam vitae enim molestie facilisis. Curabitur scelerisque, quam eget volutpat condimentum, arcu risus feugiat ex, eget pretium tortor lectus eget metus. Donec lorem urna, pellentesque non dapibus in, scelerisque malesuada erat. Vestibulum nunc velit, efficitur in tellus non, ullamcorper ullamcorper ex. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a gravida neque. Praesent volutpat pretium scelerisque.</div>
-                            </div>
-                            {/* <Chat Bot /> */}
-                        </div>
+                        <ChatComp />
+                        
 
                     </div>
 
                     <div className="bg-gray-300 h-fit p-4">
-                        <div className="bg-gray-600 h-[70vh] p-4 border border-solid rounded-lg">
-                            <div className="flex justify-center items-center bg-gray-500 h-80 p-4 border border-solid rounded-lg relative">
+                        <div className="bg-gray-600 h-[30vh] p-4 border border-solid rounded-lg w-full flex">
+                            <div className="flex justify-center items-center bg-gray-500 h-40 w-1/2 p-4 border border-solid rounded-lg relative">
                                 <input type="file" accept="image/*" onChange={handleFileChange} className='w-full h-full opacity-0 absolute' />
                                 {selectedFile ? (
                                     <img
@@ -78,16 +72,42 @@ const Dashboard = () => {
                                     />
                                 ) : (
                                     <img src={plusicon} width="110vw" alt="Plus Icon" />
-                                )}
+                                    )}
                             </div>
+                            <div className='fixed ml-96 mt-8'>
+                                {selectedFile ? 
+                                    <button className={`btn`}>
+                                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
+                                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                                </svg>
 
-                            <div className='my-8 flex justify-around items-center'>
-                                <button className='px-2 text-2xl bg-white text-center' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
-                                <button className='px-2 text-2xl bg-white' onClick={handleSubmit}>Test 1</button>
+                                <span className="text">Generate</span>
+                                </button>
+
+                                :
+                                    <div className='p-4 bg-slate-500 rounded-full select-none mt-4'>Upload a file to generate response </div>
+                                }
                             </div>
+                            
+
                         </div>
+                        <div className='bg-gray-600 p-4 rounded-lg'>
+
+                            <span className='text-slate-900'>Please enter your trip dates to help us plan better.</span>
+                            <DatePicker />
+                        </div>
+                           { selectedFile && <div className='my-8 flex justify-around items-center'>
+                                <DashboardButtons text={'Itinerary'}/>
+                                <DashboardButtons text={'Budget'}/>
+                                <DashboardButtons text={'Food'}/>
+                                <DashboardButtons text={'Clothing'}/>
+                                <DashboardButtons text={'Security'}/>
+
+                            
+                            </div>}
+
+
+                            
                     </div>
 
 

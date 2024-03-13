@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+// import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import down from "../assets/down.png";
-import { Link } from "react-router-dom";
 
 // import { Button } from "@/components/ui/button";
 
+const SERVERURL = import.meta.env.VITE_SERVERURL;
+
 const Register = () => {
   const [registerError, setRegisterError] = useState(false);
+  const [message, setMessage] = useState("User already present! Please Login!");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -21,12 +25,20 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/register", formData);
-      console.log(response.data);
-    } 
-    catch (error) {
-      console.error("Error registering user:", error.response?.data.message);
+      const response = await axios.post(`${SERVERURL}/register`, formData);
+      if (response.data.user === formData.username) {
+        localStorage.clear();
+        localStorage.setItem("username", response.data.user);
+        localStorage.setItem("password", response.data.password);
+        navigate('/dashboard');
+      }
+      else
+        setMessage(response.data.message);
+    }
+    catch (err) {
+      console.error("Error registering user:", err.response?.data.message);
       setRegisterError(true);
+      setMessage(err.response.data.message)
     }
   };
 
@@ -36,7 +48,7 @@ const Register = () => {
         <h1 className="text-6xl mb-7 mainText font-bold uppercase text-red-400">Register</h1>
         {registerError && (
           <p className="text-white bg-red-500 p-3 m-3 rounded-full">
-            User already present please Login
+            {message}
           </p>
         )}
         <form
@@ -67,9 +79,7 @@ const Register = () => {
           </button>
           <div className="mt-4">
             Have an account already ?
-            <Link to="/login" className="ml-2 text-green-400">
-              Login
-            </Link>
+            <Link to="/login" className="ml-2 text-green-400"> Login </Link>
           </div>
 
         </form>

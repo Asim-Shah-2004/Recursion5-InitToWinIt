@@ -9,7 +9,6 @@ const openAiBot = async (prompt) => {
 
         const result = response.choices[0].message.content
         return result
-
     } catch (err) {
         console.log(err)
         return "Sorry Can't servcie right now"
