@@ -39,13 +39,16 @@ const Register = () => {
       console.error("Error registering user:", err.response?.data.message);
       setRegisterError(true);
       setMessage(err.response.data.message)
+      setTimeout(() => {
+        setRegisterError(false)
+      }, 2000);
     }
   };
 
   return (
-    <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-slate-600">
+    <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-[#0c2c57e1]">
       <div className="flex mx-auto items-center justify-end md:justify-center h-screen flex-col">
-        <h1 className="text-6xl mb-7 mainText font-bold uppercase text-red-400">Register</h1>
+        <h1 className="text-6xl mb-7 mainText font-bold uppercase text-[#FC6736]">Join Us</h1>
         {registerError && (
           <p className="text-white bg-red-500 p-3 m-3 rounded-full">
             {message}
@@ -73,20 +76,20 @@ const Register = () => {
           />
           <button
             type="submit"
-            className="bg-green-400 w-[150px] p-5 rounded-xl"
+            className="bg-[#FC6736] w-[150px] p-3 rounded-xl m-3 text-white "
           >
             Register
           </button>
           <div className="mt-4">
-            Have an account already ?
-            <Link to="/login" className="ml-2 text-green-400"> Login </Link>
+            <span className="text-white">Have an account already ?</span>
+            <Link to="/login" className="ml-2 text-[#FC6736] text-xl font-semibold"> Login </Link>
           </div>
 
         </form>
-        {/* <Button>Hello from shadcn</Button> */}
+
       </div>
 
-      {/* <img src={down} alt="" className="w-full md:hidden" /> */}
+
     </div>
   );
 };
