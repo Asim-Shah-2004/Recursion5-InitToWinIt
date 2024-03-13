@@ -72,7 +72,7 @@ const Login = () => {
                     </button>
                     <div className="mt-4">
                         Not our part yet ?
-                        <Link to="/">
+                        <Link to="/register">
                             <div className=" inline text-red-700">Sign Up</div>
                         </Link>
                     </div>
