@@ -29,12 +29,6 @@ const LandingPage = () => {
                         <h1 className='text-5xl p-4 font-bold text-[#FC6736]'>Travel</h1>
                         <h1 className='text-5xl ml-7 font-bold -mt-10 p-4 text-[#EFECEC]'>Smart</h1>
                     </div>
-<<<<<<< HEAD
-                    <div className='z-10 p-8  relative -left-64'>
-                        <button className='border-[2px] border-[#EFECEC] border-solid text-[#EFECEC] p-4 mr-5 rounded-xl hover:text-[#]'>Start Planning</button>
-                        
-                        <button className='bg-[#FC6736] text-[#0C2D57] p-4 rounded-xl'>Start Planning</button>
-=======
                     <div className='z-10 p-8  relative -left-64 bg-black w-[500px]'>
                         <button className="overflow-hidden text-[#ffffff] px-10 rounded-xl font-bold text-2xl hover:bg-[#FC6736] hover:text-[#0C2D57] transition duration-300 ease-in-out">
                             <span className="absolute top-0 left-0 w-full h-full bg-[#FC6736] mix-blend-multiply transition-transform duration-300 ease-in-out transform scale-0 origin-top-left"></span>
@@ -46,7 +40,6 @@ const LandingPage = () => {
                         </button> */}
                         {/* <button className='bg-[#FC6736] text-[#0C2D57] p-4 rounded-xl'>Start Planning</button> */}
 
->>>>>>> 628fbc4088434ff1b433da641e4cb26afbd87acf
                     </div>
                     <div className='z-10 p-8  '>
                         {/* <button className="relative overflow-hidden bg-[#000000] text-[#FFB0B0] p-4 rounded-xl font-bold text-2xl hover:bg-[#FC6736] hover:text-[#0C2D57] transition duration-300 ease-in-out">

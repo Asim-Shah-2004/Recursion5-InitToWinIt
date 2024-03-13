@@ -5,7 +5,7 @@ import axios from 'axios';
 // import ImageUpload from '@/components/ui/ImageUpload';
 import plusicon from '../assets/plus.png'
 
-import 'react-chat-widget/lib/styles.css';
+// import 'react-chat-widget/lib/styles.css';
 
 const Dashboard = () => {
     const [selectedFile, setSelectedFile] = useState(null);

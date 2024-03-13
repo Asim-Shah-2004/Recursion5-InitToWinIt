@@ -22,11 +22,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-<<<<<<< HEAD
     "react-spring": "^9.7.3",
-=======
     "react-typed": "^2.0.12",
->>>>>>> 628fbc4088434ff1b433da641e4cb26afbd87acf
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7"

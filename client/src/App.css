@@ -78,10 +78,6 @@ button span:nth-child(5) {
 button:hover span:not(:nth-child(6)) {
     transform: translate(-50%, -50%) scale(4);
     transition: 1.5s ease;
-<<<<<<< HEAD
-}
- 
-=======
 } */
 
 button {
@@ -126,4 +122,3 @@ button:hover::before {
     top: -30px;
     left: -30px;
 }
->>>>>>> 628fbc4088434ff1b433da641e4cb26afbd87acf
