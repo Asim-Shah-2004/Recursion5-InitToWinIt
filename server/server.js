@@ -15,10 +15,7 @@ const PORT = 3000
 const CONNECTION_URL = `mongodb+srv://IPL_AUCTION_24:${process.env.PASSWORD}@cluster0.ilknu4v.mongodb.net/HACKATHON`
 
 mongoose
-    .connect(CONNECTION_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect(CONNECTION_URL)
     .then(() => console.log('Connected to MongoDB successfully'))
     .catch((err) => console.log(`No connection to MongoDB\nError:\n${err}`))
 
@@ -30,6 +27,8 @@ app.use('/register', RegisterRouter)
 app.use('/login', loginRouter)
 app.use('/upload', uploadRouter)
 app.use('/generel',generelRouter)
+
+
 app.use('/test',testRouter)
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
