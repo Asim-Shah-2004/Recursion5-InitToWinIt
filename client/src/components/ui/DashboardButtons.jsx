@@ -3,19 +3,30 @@ import axios from 'axios'
 
 const SERVERURL = import.meta.env.VITE_SERVERURL
 
-const handleOnClick = async(text,file,span)=>{
+const handleOnClick = async (text, file, span, updateMessage) => {
     const formData = new FormData();
-            formData.append('image', file);
-            formData.append('type',text)
-            formData.append('span',span)
-            const response = await axios.post(`${SERVERURL}/upload`, formData);
-            console.log('Image uploaded successfully:', response.data);
+    formData.append('image', file);
+    formData.append('type', text)
+    formData.append('span', span)
+
+    updateMessage(prevMessages => {
+        const updatedMessages = [...prevMessages, `Clicked on ${text}`];
+        return updatedMessages
+    })
+
+    const response = await axios.post(`${SERVERURL}/upload`, formData);
+
+    updateMessage(prevMessages => {
+        const updatedMessages = [...prevMessages, response.data];
+        return updatedMessages
+    })
+    console.log('Image uploaded successfully:', response.data);
 }
 
-const DashboardButtons = ({ text,file,span }) => {
+const DashboardButtons = ({ text, file, span, updateMessage }) => {
     return (
         <>
-            <button className='d-btn' onClick={() => handleOnClick(text,file,span)}>
+            <button className='d-btn' onClick={() => handleOnClick(text, file, span, updateMessage)}>
                 <svg className='d-svg'
                     height="24"
                     width="24"

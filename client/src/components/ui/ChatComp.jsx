@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import plusicon from '../../assets/plus.png'
 
-const ChatComp = () => {
-    const [messages, setMessages] = useState(["fdf", "fjdhskdhf", "jfkjfkdj", "fdf", "fjdhskdhf", "jfkjfkdj", "fdf", "fjdhskdhf", "jfkjfkdj", "fdf", "fjdhskdhf", "jfkjfkdj"]);
-    const [client, setClient] = useState(true);
-    // let client;
+const ChatComp = ({ messages }) => {
+
     return (
         <div>
             <div className="bg-gray-500 h-[70vh] p-4 border border-solid rounded-lg overflow-auto flex flex-col ">

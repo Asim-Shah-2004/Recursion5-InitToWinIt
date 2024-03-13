@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [error, setError] = useState(false);
     const [span, setSpan] = useState(30);
+    const [messageHistory, setMessageHistory] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -54,7 +55,7 @@ const Dashboard = () => {
                 <div className="grid grid-cols-2 gap-2 mx-8">
 
                     <div className="bg-gray-300 h-fit p-4">
-                        <ChatComp />
+                        <ChatComp messages={messageHistory} />
 
 
                     </div>
@@ -96,12 +97,12 @@ const Dashboard = () => {
                             <DatePicker setDateDiff={setSpan} />
                         </div>
                         {selectedFile && <div className='my-8 flex justify-around items-center'>
-                            <DashboardButtons text={'Itinerary'} file={selectedFile} span={span}/>
-                            <DashboardButtons text={'Threat'} file={selectedFile}/>
-                            <DashboardButtons text={'Food'} file={selectedFile}/>
-                            <DashboardButtons text={'Clothing'} file={selectedFile}/>
-                            <DashboardButtons text={'Security'} file={selectedFile}/>
-                            <DashboardButtons text={'Climate'} file={selectedFile} />
+                            <DashboardButtons text={'Itinerary'} file={selectedFile} span={span} updateMessage={setMessageHistory} />
+                            <DashboardButtons text={'Threat'} file={selectedFile} updateMessage={setMessageHistory} />
+                            <DashboardButtons text={'Food'} file={selectedFile} updateMessage={setMessageHistory} />
+                            <DashboardButtons text={'Clothing'} file={selectedFile} updateMessage={setMessageHistory} />
+                            <DashboardButtons text={'Security'} file={selectedFile} updateMessage={setMessageHistory} />
+                            <DashboardButtons text={'Climate'} file={selectedFile} updateMessage={setMessageHistory} />
 
                         </div>}
 
