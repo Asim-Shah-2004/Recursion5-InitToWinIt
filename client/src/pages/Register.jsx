@@ -21,9 +21,10 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/register/", formData);
+      const response = await axios.post("http://localhost:3000/register", formData);
       console.log(response.data);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("Error registering user:", error.response?.data.message);
       setRegisterError(true);
     }
@@ -46,8 +47,8 @@ const Register = () => {
             type="text"
             placeholder="Enter username"
             className="bg-black text-white p-5 rounded-xl m-3"
-            name="name"
-            value={formData.name}
+            name="username"
+            value={formData.username}
             onChange={handleChange}
           />
           <input
