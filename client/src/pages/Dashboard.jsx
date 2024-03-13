@@ -7,13 +7,56 @@ import axios from 'axios';
 import plusicon from '../assets/plus.png'
 import './Dashboard.css'
 
-const SERVERURL = import.meta.env.VITE_SERVER_URL;
+const SERVERURL = import.meta.env.VITE_SERVERURL;
+
+const handleOnGenerateClick = async (inputText, file, span, setMessageHistory) => {
+    const formData = new FormData()
+    formData.append('image', file)
+    formData.append('span', span)
+
+    console.log(inputText);
+
+    if (file && !inputText) {
+        const prompt = "Give me some travel information about the provided image"
+        formData.append('type', "Generate")
+        setMessageHistory(prevMessages => {
+            const updatedMessages = [...prevMessages, prompt];
+            return updatedMessages
+        })
+
+        const response = await axios.post(`${SERVERURL}/upload`, formData);
+
+        setMessageHistory(prevMessages => {
+            const updatedMessages = [...prevMessages, response.data];
+            return updatedMessages
+        })
+        console.log('Image uploaded successfully:', response.data);
+    }
+
+    if (file && inputText) {
+        formData.append('type', "General")
+        formData.append('prompt', inputText )
+        setMessageHistory(prevMessages => {
+            const updatedMessages = [...prevMessages, inputText];
+            return updatedMessages
+        })
+
+        const response = await axios.post(`${SERVERURL}/upload`, formData);
+
+        setMessageHistory(prevMessages => {
+            const updatedMessages = [...prevMessages, response.data];
+            return updatedMessages
+        })
+        console.log('Image uploaded successfully:', response.data);
+    }
+}
 
 const Dashboard = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [error, setError] = useState(false);
     const [span, setSpan] = useState(30);
     const [messageHistory, setMessageHistory] = useState([]);
+    const [inputText, setInputText] = useState();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -93,12 +136,12 @@ const Dashboard = () => {
                             </div>
                             <div className='fixed ml-96 mt-8'>
                                 {selectedFile ?
-                                    <button className={`btn`}>
+                                    <button className={`btn`} onClick={() => handleOnGenerateClick(inputText, selectedFile, span, setMessageHistory)}>
                                         <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
                                             <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
                                         </svg>
 
-                                        <span className="text">Generate</span>
+                                        <span className="text"> Generate </span>
                                     </button>
 
                                     :
