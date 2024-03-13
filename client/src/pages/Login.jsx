@@ -33,6 +33,22 @@ const Login = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        try {
+          const response = await axios.get(
+            `http://localhost:3000/login`
+          );
+          console.log(response.data); // You can handle the response as needed
+    
+        } catch (error) {
+          console.error("Error registering user:", error);
+          setRegisterError(true);
+          setMessage(error.response.data.fetch);      
+        }
+      };
+
 
     return (
         <div className="main flex mx-auto items-center justify-between h-screen flex-col bg-slate-100">
