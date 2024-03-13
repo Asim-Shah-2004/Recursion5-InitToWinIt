@@ -96,12 +96,12 @@ const Dashboard = () => {
                             <DatePicker setDateDiff={setSpan} />
                         </div>
                         {selectedFile && <div className='my-8 flex justify-around items-center'>
-                            <DashboardButtons text={'Itinerary'} />
-                            <DashboardButtons text={'Budget'} />
-                            <DashboardButtons text={'Food'} />
-                            <DashboardButtons text={'Clothing'} />
-                            <DashboardButtons text={'Security'} />
-
+                            <DashboardButtons text={'Itinerary'} file={selectedFile} span={span}/>
+                            <DashboardButtons text={'Threat'} file={selectedFile}/>
+                            <DashboardButtons text={'Food'} file={selectedFile}/>
+                            <DashboardButtons text={'Clothing'} file={selectedFile}/>
+                            <DashboardButtons text={'Security'} file={selectedFile}/>
+                            <DashboardButtons text={'Climate'} file={selectedFile} />
 
                         </div>}
 

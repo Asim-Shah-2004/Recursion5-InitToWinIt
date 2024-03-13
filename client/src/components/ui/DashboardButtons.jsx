@@ -1,9 +1,21 @@
 import React from 'react'
+import axios from 'axios'
 
-const DashboardButtons = ({ text }) => {
+const SERVERURL = import.meta.env.VITE_SERVERURL
+
+const handleOnClick = async(text,file,span)=>{
+    const formData = new FormData();
+            formData.append('image', file);
+            formData.append('type',text)
+            formData.append('span',span)
+            const response = await axios.post(`${SERVERURL}/upload`, formData);
+            console.log('Image uploaded successfully:', response.data);
+}
+
+const DashboardButtons = ({ text,file,span }) => {
     return (
         <>
-            <button className='d-btn'>
+            <button className='d-btn' onClick={() => handleOnClick(text,file,span)}>
                 <svg className='d-svg'
                     height="24"
                     width="24"
