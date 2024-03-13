@@ -5,6 +5,7 @@ import cors from 'cors'
 import RegisterRouter from './routes/registerRoute.js'
 import loginRouter from './routes/loginRoute.js'
 import uploadRouter from './routes/uploadRoute.js'
+import openAiTestRoute from './routes/openAiTestRoute.js'
 import corsOptions from './config/corsOptions.js'
 
 dotenv.config()
@@ -24,10 +25,11 @@ mongoose
 app.use(express.json())
 app.use(cors(corsOptions))
 
-// Registering routes
+
 app.use('/register', RegisterRouter)
 app.use('/login', loginRouter)
 app.use('/upload', uploadRouter)
+app.use('/openai',openAiTestRoute)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
