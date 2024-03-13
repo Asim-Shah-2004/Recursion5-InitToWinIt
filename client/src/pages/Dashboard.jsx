@@ -57,6 +57,23 @@ const Dashboard = () => {
                     <div className="bg-gray-300 h-fit p-4">
                         <ChatComp messages={messageHistory} />
 
+                        <div className="relative">
+                            <span className="absolute inset-y-0 left-0 pl-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-message-square"><path d="M12 6V2H8" /><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z" /><path d="M2 12h2" /><path d="M9 11v2" /><path d="M15 11v2" /><path d="M20 12h2" /></svg>
+                            </span>
+
+                            <input
+                                type="text"
+                                className="pl-10 pr-12 py-2 border rounded-full w-full focus:outline-none focus:border-blue-500"
+                                placeholder="Enter text..."
+                            />
+
+                            {/* Trailing button */}
+                            <button type="button" className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                {/* Your trailing button content, e.g., an icon or text */}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+                            </button>
+                        </div>
 
                     </div>
 

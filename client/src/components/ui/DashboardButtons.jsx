@@ -10,7 +10,7 @@ const handleOnClick = async (text, file, span, updateMessage) => {
     formData.append('span', span)
 
     updateMessage(prevMessages => {
-        const updatedMessages = [...prevMessages, `Clicked on ${text}`];
+        const updatedMessages = [...prevMessages, `Searching for information about ${text}`];
         return updatedMessages
     })
 
