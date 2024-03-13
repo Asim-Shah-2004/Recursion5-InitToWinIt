@@ -25,7 +25,11 @@ const handleRegister = async (req, res) => {
 
         console.log(newUser)
 
-        res.send({ message: 'User successfully registered', user: username, password: password })
+        res.send({
+            message: 'User successfully registered',
+            user: username,
+            password: password,
+        })
     } catch (error) {
         console.error('Error registering user:', error)
         res.status(500).send({ message: 'Invalid Password' })

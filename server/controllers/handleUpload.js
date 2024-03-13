@@ -7,6 +7,7 @@ import handleSafetyConsiderations from './handleSafetyConsiderations.js'
 import handleClimate from './handleClimate.js'
 import handleClothing from './handleClothing.js'
 import handleThreat from './handleThreat.js'
+import handleGenerate from './handleGenerate.js'
 
 async function handleUpload(req, res) {
     try {
@@ -31,6 +32,8 @@ async function handleUpload(req, res) {
             return await handleClothing(req, res, locations)
         } else if (req.body.type === 'Threat') {
             return await handleThreat(req, res, locations)
+        } else if (req.body.type === 'generate') {
+            return await handleGenerate(req, res, locations)
         } else {
             return await handleGeneral(req, res, locations)
         }
