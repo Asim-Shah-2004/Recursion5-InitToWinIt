@@ -1,12 +1,13 @@
 // In your handleUpload.js file
 import geminiBot from '../services/geminiService.js'
-import handleTravelItenary from './handleTravelItenary.js'
+import handleGeneral from './handleGeneral.js'
+import handleTravelItinerary from './handleTravelItinerary.js'
 import handleFamousFood from './handleFamousFood.js'
 import handleSafetyConsiderations from './handleSafetyConsiderations.js'
 import handleClimate from './handleClimate.js'
-import handleChlothing from './handleChlothing.js'
+import handleClothing from './handleClothing.js'
 import handleThreat from './handleThreat.js'
-import handleGenerel from './handleGenerel.js'
+
 async function handleUpload(req, res) {
     try {
         // Check if a file was uploaded
@@ -18,24 +19,21 @@ async function handleUpload(req, res) {
         const locations = await geminiBot(req.file)
         console.log(locations)
 
-        if (req.body.type === 'Itenary')
-            return await handleTravelItenary(req, res, locations)
-        else if (req.body.type === 'food') {
+        if (req.body.type === 'Itinerary')
+            return await handleTravelItinerary(req, res, locations)
+        else if (req.body.type === 'Food') {
             return await handleFamousFood(req, res, locations)
-        }else if(req.body.type==='safety'){
-            return await handleSafetyConsiderations(req,res,locations)
-        }else if(req.body.type==='climate'){
-            return await handleClimate(req,res,locations)
-        }else if(req.body.type==='chlothing'){
-            return await handleChlothing(req,res,locations)
-        }else if(req.body.type==='threat'){
-            return await handleThreat(req,res,locations)
-        }else{
-            return await handleGenerel(req,res,locations)   
+        } else if (req.body.type === 'Security') {
+            return await handleSafetyConsiderations(req, res, locations)
+        } else if (req.body.type === 'Climate') {
+            return await handleClimate(req, res, locations)
+        } else if (req.body.type === 'Clothing') {
+            return await handleClothing(req, res, locations)
+        } else if (req.body.type === 'Threat') {
+            return await handleThreat(req, res, locations)
+        } else {
+            return await handleGeneral(req, res, locations)
         }
-
-        // Send the result back as a response
-        res.send('Finish Upload')
     } catch (error) {
         console.error('Error processing file:', error)
         res.status(500).send('Error processing file.')

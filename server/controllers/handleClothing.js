@@ -1,7 +1,7 @@
 import openAiBot from '../services/openAiService.js';
 import getDate from '../services/formattedDate.js';
 
-const handleChlothing = async (req, res, locations) => {
+const handleClothing = async (req, res, locations) => {
     const formattedDate = getDate();
 
     console.log(formattedDate);
@@ -18,4 +18,4 @@ const handleChlothing = async (req, res, locations) => {
     res.send(result);
 }
 
-export default handleChlothing;
+export default handleClothing;

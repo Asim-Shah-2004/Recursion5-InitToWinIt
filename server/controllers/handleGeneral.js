@@ -1,6 +1,7 @@
 import openAiBot from '../services/openAiService.js'
 import getDate from '../services/formattedDate.js';
-const handdleGenerel = async (req, res, locations) => {
+
+const handleGeneral = async (req, res, locations) => {
     const {prompt} = req.body;
     const formattedDate = getDate();
     const result = await openAiBot(
@@ -20,4 +21,4 @@ const handdleGenerel = async (req, res, locations) => {
     res.send(result)
 }
 
-export default handdleGenerel
+export default handleGeneral
