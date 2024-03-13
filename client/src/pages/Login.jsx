@@ -106,7 +106,7 @@ const Login = () => {
                         {loading ? 'Loading...' : 'Login'} {/* Display loading text when loading */}
                     </button>
                     <div className="mt-8 text-lg text-white">
-                        Not our part yet?
+                        Not our part yet ?
                         <Link to="/register">
                             <div className=" inline text-xl text-[#FC6736] p-2 rounded-xl font-semibold"> Sign Up </div>
                         </Link>
