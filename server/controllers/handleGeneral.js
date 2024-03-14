@@ -12,10 +12,12 @@ const handleGeneral = async (req, res, locations) => {
           you are a travel releated chatbot so you should only answer questions pertaning to travelling in ${locations}
           use the given context and answer questions based on the given context only
           any question should include answer releted to the given context only
+          the response 50 to 75 words only make sure not to exceed this
           some examples :
           if you are aksed what will i do at a paticular day use the above context
           if you are aksked places to visit use the above context
           the questoion is :${prompt}
+
         `
         )
         console.log(result)

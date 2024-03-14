@@ -5,6 +5,7 @@ const handleFamousFood = async (req, res, locations) => {
         const result = await openAiBot(`
         provide me culinary recommendations based on your location, identified as: ${locations}(only take the city name if present). 
         Please suggest some famous local dishes or food specialties.
+        the response 50 to 75 words only make sure not to exceed this
         Ensure the suggestions are tailored to the cuisine prevalent in the specified location
     `)
         console.log(result)
