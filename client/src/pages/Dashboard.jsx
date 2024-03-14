@@ -123,7 +123,7 @@ const Dashboard = () => {
                     <div className='flex'>
                         <div> <h1 className='text-white text-4xl mt-6 mr-2'>Hello</h1></div>
                         <div><h1 className='text-[#FC6736] text-4xl mt-6 mr-16'>{localStorage.getItem('username').toUpperCase()}</h1></div>
-                        <div className="h-4 w-4 mt-8 mr-8 -ml-14 rounded-full bg-green-700 animate-ping ease-in-out "></div>
+                        <div className="h-3 w-3 mt-8 mr-8 -ml-14 rounded-full bg-green-800 custom-ping-animation"></div>
                     </div>
                 </div>
 

@@ -79,3 +79,19 @@
   .example ::-webkit-scrollbar {
     display: none;
   }
+
+  @keyframes custom-ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    70%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  .custom-ping-animation {
+    animation: custom-ping 1.5s linear infinite; /* Adjust the duration (2s) and timing function (linear) as needed */
+  }
+  
