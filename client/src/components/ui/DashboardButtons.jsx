@@ -10,13 +10,15 @@ const handleOnClick = async (text, file, span, updateMessage) => {
     formData.append('span', span)
 
     updateMessage(prevMessages => {
-        const updatedMessages = [...prevMessages, `Searching for information about ${text}`];
+        const updatedMessages = [...prevMessages, `Searching for information about ${text}`, ". . . ."];
         return updatedMessages
     })
 
+    // updatedMessages = [...prevMessages, `Searching for information about ${text}`]
     const response = await axios.post(`${SERVERURL}/upload`, formData);
 
     updateMessage(prevMessages => {
+        prevMessages.pop();
         const updatedMessages = [...prevMessages, response.data];
         return updatedMessages
     })
@@ -26,7 +28,7 @@ const handleOnClick = async (text, file, span, updateMessage) => {
 const DashboardButtons = ({ text, file, span, updateMessage }) => {
     return (
         <>
-            <button className='d-btn' onClick={() => handleOnClick(text, file, span, updateMessage)}>
+            <button className='d-btn min-w-[200px]' onClick={() => handleOnClick(text, file, span, updateMessage)}>
                 <svg className='d-svg'
                     height="24"
                     width="24"
