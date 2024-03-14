@@ -74,6 +74,7 @@ const Dashboard = () => {
     const [span, setSpan] = useState(30);
     const [messageHistory, setMessageHistory] = useState([]);
     const [inputText, setInputText] = useState('');
+    const [responseArrived, setResponseArrived] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -111,10 +112,14 @@ const Dashboard = () => {
     return (
         <>
             <div className='w-full h-screen bg-[#0C2D57] mx-auto'>
-                <div className='max-w-[1440px] mx-auto'>
-                    <div>
+                <div className='max-w-[1440px] mx-auto flex'>
+                    <div className='flex-grow'>
                         <h2 className='text-5xl p-4 font-bold  text-[#FC6736]'>Travel</h2>
                         <h2 className='text-5xl ml-7 font-bold -mt-10 p-4 text-[#EFECEC]'>Smart</h2>
+                    </div>
+
+                    <div>
+                        <h1 className='text-white text-6xl mt-6 mr-16'>Hello {localStorage.getItem('username').toUpperCase()} ......</h1>
                     </div>
                 </div>
 
@@ -172,7 +177,7 @@ const Dashboard = () => {
                                         <p className='mt-4 font-bold text-[#FC6736]'>For general info click the above button</p>
                                     </>
                                     :
-                                    <div className='p-4 bg-[#3D3B40] rounded-full select-none mt-4'>Upload a file to generate response </div>
+                                    <div className='p-4 bg-slate-400 rounded-full select-none mt-4'>Upload a file to generate response </div>
                                 }
                             </div>
 
