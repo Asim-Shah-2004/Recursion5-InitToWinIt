@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
+import AudioPlayer from './AudioPlayer';
+// import axios from 'axios';
 import plusicon from '../../assets/plus.png'
+
+const SERVERURL = import.meta.env.VITE_SERVERURL;
 
 const ChatComp = ({ messages }) => {
 
@@ -12,7 +16,6 @@ const ChatComp = ({ messages }) => {
                     <div className={` flex flex-col my-6 items-${index % 2 === 0 ? 'end' : 'start'} ${index % 2 === 0 ? 'ml-64' : ' max-w-[400px]'} `}>
                         <div className='font-bold text-xl mx-12 text-white'>{index % 2 === 0 ? "You" : "TravelAI"}</div>
                         <div className={`flex  ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
-
                             <div className={`${index % 2 === 0 ? 'bg-slate-300' : 'bg-slate-800 text-slate-300'} rounded-xl p-3 mx-2`}>{parameter}</div>
                             <div >{
                                 index % 2 === 0
@@ -24,7 +27,7 @@ const ChatComp = ({ messages }) => {
                                         </div>
 
                                         <div className={`bg-[#FC6736] w-10 h-10 rounded-[50%]  p-3 flex ${index % 2 === 0 ? '' : 'items-center'} justify-center font-bold uppercase`}>
-                                            <button>TTS</button>
+                                            <AudioPlayer paragraph={parameter} />
                                         </div>
                                     </div>
                             }
