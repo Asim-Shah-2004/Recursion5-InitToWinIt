@@ -4,9 +4,15 @@ import axios from 'axios'
 const SERVERURL = import.meta.env.VITE_SERVERURL
 
 const handleOnClick = async (text, file, span, updateMessage) => {
+
     const formData = new FormData();
     formData.append('image', file);
-    formData.append('type', text)
+
+    if (text === 'Emergency')
+        formData.append('type', "Threat")
+    else
+        formData.append('type', text)
+
     formData.append('span', span)
 
     updateMessage(prevMessages => {

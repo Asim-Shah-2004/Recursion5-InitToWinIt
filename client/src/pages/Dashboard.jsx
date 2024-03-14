@@ -36,13 +36,14 @@ const handleOnClick = async (inputText, file, span, setMessageHistory, setInputT
         const prompt = "Give me some travel information about the provided image"
         formData.append('type', "Generate")
         setMessageHistory(prevMessages => {
-            const updatedMessages = [...prevMessages, prompt];
+            const updatedMessages = [...prevMessages, prompt, ". . . ."];
             return updatedMessages
         })
 
         const response = await axios.post(`${SERVERURL}/upload`, formData);
 
         setMessageHistory(prevMessages => {
+            prevMessages.pop();
             const updatedMessages = [...prevMessages, response.data];
             return updatedMessages
         })
@@ -74,7 +75,8 @@ const Dashboard = () => {
     const [span, setSpan] = useState(30);
     const [messageHistory, setMessageHistory] = useState([]);
     const [inputText, setInputText] = useState('');
-    const [responseArrived, setResponseArrived] = useState(false);
+
+
 
 
     const handleSubmit = async (e) => {
@@ -118,8 +120,10 @@ const Dashboard = () => {
                         <h2 className='text-5xl ml-7 font-bold -mt-10 p-4 text-[#EFECEC]'>Smart</h2>
                     </div>
 
-                    <div>
-                        <h1 className='text-white text-6xl mt-6 mr-16'>Hello {localStorage.getItem('username').toUpperCase()} ......</h1>
+                    <div className='flex'>
+                        <div> <h1 className='text-white text-4xl mt-6 mr-2'>Hello</h1></div>
+                        <div><h1 className='text-[#FC6736] text-4xl mt-6 mr-16'>{localStorage.getItem('username').toUpperCase()}</h1></div>
+                        <div className="h-2 w-2 mt-8 mr-8 -ml-14 rounded-full bg-green-800 animate-ping ease-in-out "></div>
                     </div>
                 </div>
 
@@ -147,6 +151,8 @@ const Dashboard = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
                             </button>
                         </div>
+
+
 
                     </div>
 
@@ -188,7 +194,7 @@ const Dashboard = () => {
                             Or if you want detailed analysis click any of these buttons
                             <div className='flex w-full justify-evenly'>
                                 <DashboardButtons text={'Itinerary'} file={selectedFile} span={span} updateMessage={setMessageHistory} />
-                                <DashboardButtons text={'Threat'} file={selectedFile} updateMessage={setMessageHistory} />
+                                <DashboardButtons text={'Emergency'} file={selectedFile} updateMessage={setMessageHistory} />
                                 <DashboardButtons text={'Food'} file={selectedFile} updateMessage={setMessageHistory} />
 
                             </div>
