@@ -27,9 +27,9 @@ const Register = () => {
     try {
       const response = await axios.post(`${SERVERURL}/register`, formData);
       if (response.data.user === formData.username) {
-        localStorage.clear();
-        localStorage.setItem("username", response.data.user);
-        localStorage.setItem("password", response.data.password);
+        // localStorage.clear();
+        // localStorage.setItem("username", response.data.user);
+        // localStorage.setItem("password", response.data.password);
         navigate('/login');
       }
       else
