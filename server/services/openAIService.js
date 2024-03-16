@@ -1,6 +1,6 @@
-import openai from '../config/openaiOptions.js'
+import { openai } from '../config/index.js'
 
-const openAiBot = async (prompt) => {
+const openAIBot = async (prompt) => {
     try {
         const response = await openai.chat.completions.create({
             messages: [{ role: 'user', content: `${prompt}` }],
@@ -10,9 +10,9 @@ const openAiBot = async (prompt) => {
         const result = response.choices[0].message.content
         return result
     } catch (err) {
-        console.log(err)
-        return "Sorry Can't servcie right now"
+        console.error('OpenAI request failed: ', err)
+        return "Sorry, we couldn't process your request at the moment. Please try again later."
     }
 }
 
-export default openAiBot
+export default openAIBot

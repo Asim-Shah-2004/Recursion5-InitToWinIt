@@ -1,7 +1,8 @@
 import express from 'express'
-const RegisterRouter = express.Router()
-import handleRegister from '../controllers/handleRegister.js'
+import { handleRegister } from '../controllers/index.js'
 
-RegisterRouter.post('/', handleRegister)
+const registerRouter = express.Router()
 
-export default RegisterRouter
+registerRouter.post('/', handleRegister)
+
+export default registerRouter

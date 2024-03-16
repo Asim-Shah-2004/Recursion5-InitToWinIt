@@ -3,16 +3,16 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const CONNECTION_URL = `mongodb+srv://IPL_AUCTION_24:${process.env.PASSWORD}@cluster0.ilknu4v.mongodb.net/HACKATHON`
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/travelsmartdb"
 
-const connectToDatabase = async () => {
+const connectToDB = async () => {
     try {
-        await mongoose.connect(CONNECTION_URL)
+        await mongoose.connect(MONGODB_URI)
         console.log('Connected to MongoDB successfully')
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message)
+    } catch (err) {
+        console.error('Error connecting to MongoDB: ', err.message)
         process.exit(1)
     }
 }
 
-export default connectToDatabase
+export default connectToDB

@@ -6,12 +6,10 @@ const handleRegister = async (req, res) => {
 
     try {
         if (!username || !password)
-            return res
-                .status(400)
-                .send({ message: 'Enter Username and Password!' })
+            return res.status(400).send({ message: 'Enter Username and Password!' })
 
         const existingUser = await User.findOne({ username })
-        console.log(existingUser)
+
         if (existingUser) return res.send({ message: 'User already exists' })
 
         const hashedPwd = await bcrypt.hash(password, 10)
@@ -23,15 +21,13 @@ const handleRegister = async (req, res) => {
 
         await newUser.save()
 
-        console.log(newUser)
-
         res.send({
             message: 'User successfully registered',
             user: username,
             password: password,
         })
-    } catch (error) {
-        console.error('Error registering user:', error)
+    } catch (err) {
+        console.error('Error registering user:', err)
         res.status(500).send({ message: 'Invalid Password' })
     }
 }

@@ -1,37 +1,26 @@
-import openAiBot from '../services/openAiService.js'
-import openai from '../config/openaiOptions.js'
+import { openAIBot } from "../services/index.js"
+
 const handleGeneralBot = async (req, res) => {
-    const { prompt } = req.body
+    const { prompt: userPrompt } = req.body
+
     try {
-        const result = await openAiBot(
-            ` "Is the question related to travel and tourism? 
-             ${prompt}" 
-            Respond with 'yes' if the question is related to travel or tourism; 
-            otherwise, respond with 'no' (omit any other words).
-            `
+        const prompt = (
+            `Is the question related to travel and tourism?\n${userPrompt}\n` +
+            "Respond with 'yes' if the question is related to travel or tourism; " +
+            "otherwise, respond with 'no' (omit any other words)."
         )
-        console.log(result)
+
+        const result = await openAIBot(prompt)
+
         if (result.toLocaleLowerCase() === 'yes') {
-            console.log('awaiting openai');
-            try{
-                const response = await openai.chat.completions.create({
-                    messages: [{ role: 'user', content: `answer this question : ${prompt}?` }],
-                    model: 'gpt-3.5-turbo',
-                })
-        
-                const result = response.choices[0].message.content
-                console.log(result);
-                res.send(result)
-            }catch(err){
-                console.log(err);
-                res.send('error while generating prompt')
-            }
+            const result = await openAIBot(`answer this question : ${userPrompt}?`)
+            res.send(result)
         } else {
-            res.send(`cannot answer the following question`)
+            res.send(`Cannot answer the following question`)
         }
 
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.error(err)
         res.send(`error while generating prompt`)
     }
 }

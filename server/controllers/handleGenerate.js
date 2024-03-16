@@ -1,18 +1,19 @@
-import openAiBot from '../services/openAiService.js'
+import { openAIBot } from "../services/index.js"
 
 const handleGenerate = async (req, res, location) => {
     try {
-        const result = await openAiBot(`
-    you are a travel chatbot specialized in giving travel information
-    give me some travel releated information 
-    regarding the location:${location}(consider the city if present)
-    the response 50 to 75 words only make sure not to exceed this
-    such that a person travelling there should get a brief overview of the place 
-    `)
-        console.log(result)
+        const prompt = (
+            "You are a travel chatbot specialized in giving travel information\n" +
+            `give me some travel releated information regarding the location:${location} ` +
+            "(consider the city if present)\nthe response 50 to 75 words only make sure not to exceed this " +
+            "such that a person travelling there should get a brief overview of the place"
+        )
+
+        const result = await openAIBot(prompt)
+
         res.send(result)
     } catch (err) {
-        console.log(err)
+        console.error(err)
         res.send('error while generating prompt')
     }
 }

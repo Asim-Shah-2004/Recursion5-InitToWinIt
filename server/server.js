@@ -1,25 +1,18 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import cors from 'cors'
-import connectToDatabase from './services/mongooseService.js'
-import RegisterRouter from './routes/registerRoute.js'
-import loginRouter from './routes/loginRoute.js'
-import uploadRouter from './routes/uploadRoute.js'
-import corsOptions from './config/corsOptions.js'
-import generalRouter from './routes/generalRoute.js'
-import ttsRouter from './routes/ttsRoute.js'
-
-dotenv.config()
+import { corsOptions } from './config/index.js'
+import { connectToDB } from './services/index.js'
+import { loginRouter, registerRouter, generalRouter, uploadRouter, ttsRouter } from './routes/index.js'
 
 const app = express()
 const PORT = 3000
 
-connectToDatabase()
+connectToDB()
 
 app.use(express.json())
 app.use(cors(corsOptions))
 
-app.use('/register', RegisterRouter)
+app.use('/register', registerRouter)
 app.use('/login', loginRouter)
 app.use('/upload', uploadRouter)
 app.use('/general', generalRouter)

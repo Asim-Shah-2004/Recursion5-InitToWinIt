@@ -1,7 +1,8 @@
 import express from 'express'
-const ttsRouter = express.Router()
-import textToSpeech from '../controllers/handleTextToSpeech.js'
+import { handleTextToSpeech } from '../controllers/index.js'
 
-ttsRouter.post('/', textToSpeech)
+const ttsRouter = express.Router()
+
+ttsRouter.post('/', handleTextToSpeech)
 
 export default ttsRouter

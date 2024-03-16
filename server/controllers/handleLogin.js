@@ -1,9 +1,9 @@
 import User from '../models/user.js'
 import bcrypt from 'bcrypt'
 
-const LoginHandler = async (req, res) => {
+const handleLogin = async (req, res) => {
     const { username, password } = req.body
-    console.log('request came in')
+
     if (!username || !password)
         return res.status(400).send({ message: 'Enter Username and Password!' })
 
@@ -28,4 +28,4 @@ const LoginHandler = async (req, res) => {
     }
 }
 
-export default LoginHandler
+export default handleLogin
