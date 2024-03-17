@@ -11,19 +11,19 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-spring/web": "^9.7.3",
     "autoprefixer": "^10.4.18",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.3",
-    "lucide-react": "^0.356.0",
+    "lucide-react": "^0.358.0",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-    "react-spring": "^9.7.3",
     "react-tailwindcss-datepicker": "^1.6.6",
     "react-typed": "^2.0.12",
     "tailwind-merge": "^2.2.1",
@@ -31,13 +31,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.1.6"
   }
 }

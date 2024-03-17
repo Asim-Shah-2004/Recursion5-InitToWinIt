@@ -138,7 +138,7 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-axios@^1.6.7:
+axios@^1.6.8:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
   integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
@@ -859,7 +859,7 @@ mongodb@6.3.0:
     bson "^6.2.0"
     mongodb-connection-string-url "^3.0.0"
 
-mongoose@^8.2.1:
+mongoose@^8.2.2:
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-8.2.2.tgz#8079857d906aab5b94a5f7ae7600b7401efdbfdc"
   integrity sha512-6sMxe1d3k/dBjiOX4ExNTNOP0g1x0iq8eXyg+ttgIXM3HLnQ0IUyXRwVVAPFFY6O4/8uYN5dB0Ec72FrexbPpw==
@@ -1003,7 +1003,7 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-openai@^4.28.4:
+openai@^4.29.1:
   version "4.29.1"
   resolved "https://registry.yarnpkg.com/openai/-/openai-4.29.1.tgz#89d981f8ced9d1d0db2e09ca1b16b0d7775dcf36"
   integrity sha512-vvKRIgB4/7w48PGVbeR8OceH/PT6fRo4sTIjRC7+y7WoK7by1R0cXs2SZRx4KsEh0ZB8J0eqdVIdRgs8XzeoEg==
